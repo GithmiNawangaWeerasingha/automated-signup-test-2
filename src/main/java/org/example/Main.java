@@ -11,12 +11,11 @@ public class Main {
     private static final Logger logger = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Browser drivers\\chromedriver.exe");
 
         WebDriver driver = null;
 
         try {
-            driver = new ChromeDriver();
+            driver = new ChromeDriver();  // Selenium Manager will download ChromeDriver
             driver.manage().window().maximize();
             driver.get("https://www.google.com");
 

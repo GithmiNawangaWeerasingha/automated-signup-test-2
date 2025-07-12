@@ -22,17 +22,28 @@ public class SignUpPage {
         driver.get("https://cog-stg.incubatelabs.com");
     }
 
-    public void clickSignUp() {
-
-        WebElement signUpBtn = wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//button[contains(text(), 'Sign up')]")));
-        signUpBtn.click();
+    public void clickSignin(){
+        By signInLocator = By.xpath("//a[.//span[text()='Sign in']]");
+        WebElement signInLink = wait.until(ExpectedConditions.elementToBeClickable(signInLocator));
+        signInLink.click();
     }
 
+    public void clickSignupText(){
+        System.out.println("Clicking on 'Sign up' link...");
+
+        By signUpLocator = By.xpath("//div[@class='popup_bottom_text']//a[contains(text(),'Sign up')]");
+
+        WebElement signUpLink = wait.until(ExpectedConditions.elementToBeClickable(signUpLocator));
+        signUpLink.click();
+    }
+
+
+
     public void clickSignUpWithEmail() {
-        WebElement signUpEmailBtn = wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//button[contains(text(), 'Sign up with Email')]")));
-        signUpEmailBtn.click();
+        By signupWithEmailLocator = By.id("continue_with_email_signup");
+
+        WebElement signupWithEmailLink = wait.until(ExpectedConditions.elementToBeClickable(signupWithEmailLocator));
+        signupWithEmailLink.click();
     }
 
     public void fillForm(String firstName, String lastName, String email, String phone, String password) {

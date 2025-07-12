@@ -28,16 +28,17 @@ public class SignUpTest {
         }
 
         // Set path to ChromeDriver
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        WebDriver driver = null;
 
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         try {
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
             driver.manage().window().maximize();
 
             SignUpPage page = new SignUpPage(driver);
             page.open();
-            page.clickSignUp();
+            page.clickSignin();
+            page.clickSignupText();
             page.clickSignUpWithEmail();
 
             String email = testData.getProperty("email");
